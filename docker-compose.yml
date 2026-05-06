@@ -1,7 +1,7 @@
 services:
   saml-lab:
     build: .
-    container_name: saml-service
+    container_name: sso-sandbox
     restart: unless-stopped
     environment:
       - FLASK_SECRET_KEY=${FLASK_SECRET_KEY}
