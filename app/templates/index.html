@@ -60,6 +60,11 @@ color:#cbd5f5;
 SAML Authentication & Federation Playground
 </p>
 
+<p class="subtitle">
+    Explore enterprise federation using Microsoft Entra ID and SAML 2.0.
+    Authenticate securely and inspect real-world identity claims.
+</p>
+
 <hr>
 
 <a href="/login" class="btn btn-primary btn-login">
@@ -80,9 +85,13 @@ Continue with Apple ID
 
 <hr>
 
-<a href="/toggle-debug" class="btn btn-warning btn-login">
-Toggle Debug Panel
+{% if authenticated %}
+
+<a href="/claims" class="btn btn-secondary btn-login">
+    Developer Diagnostics
 </a>
+
+{% endif %}
 
 <div class="status">
 

@@ -211,12 +211,6 @@ def claims():
     )
 
 
-@app.route("/toggle-debug")
-def toggle_debug():
-    session["debug"] = not session.get("debug", False)
-    return redirect(request.referrer or url_for("index"))
-
-
 @app.route("/logout")
 def logout():
     session.clear()

@@ -10,14 +10,6 @@ services:
       - SAML_IDP_X509CERT=${SAML_IDP_X509CERT}
       - SAML_DEBUG=${SAML_DEBUG}
       - SAML_ENABLE_SLO=${SAML_ENABLE_SLO}
-
-      # Email relay parameters via Postfix relay - using OAuth2
-      - MAIL_DRIVER=smtp
-      - MAIL_HOST=mail-relay   # Postfix-relay container name — Docker DNS resolves this
-      - MAIL_PORT=25
-      - MAIL_ENCRYPTION=null
-      - MAIL_FROM=${SMTP_FROM_ADDRESS}
-      - MAIL_FROM_NAME=BookStack
       
     labels:
       - "traefik.enable=true"
