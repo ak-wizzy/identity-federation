@@ -1,7 +1,7 @@
 services:
-  saml-lab:
+  federated-socials-sso:
     build: .
-    container_name: sso-sandbox
+    container_name: federated-saml-sso
     restart: unless-stopped
     environment:
       - FLASK_SECRET_KEY=${FLASK_SECRET_KEY}
@@ -13,11 +13,11 @@ services:
       
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sso-sandbox.rule=Host(`sso-sandbox.aktechnoservices.com`)"
-      - "traefik.http.routers.sso-sandbox.entrypoints=websecure"
-      - "traefik.http.routers.sso-sandbox.tls.certresolver=cloudflare"
-      - "traefik.http.routers.sso-sandbox.middlewares=secured-chain@docker"
-      - "traefik.http.services.sso-sandbox.loadbalancer.server.port=5000"
+      - "traefik.http.routers.socials-sso.rule=Host(`socials-sso.aktechnoservices.com`)"
+      - "traefik.http.routers.socials-sso.entrypoints=websecure"
+      - "traefik.http.routers.socials-sso.tls.certresolver=cloudflare"
+      - "traefik.http.routers.socials-sso.middlewares=secured-chain@docker"
+      - "traefik.http.services.socials-sso.loadbalancer.server.port=5000"
     
     networks:
       - reverse-proxy                  #same network with Postfix-relay
