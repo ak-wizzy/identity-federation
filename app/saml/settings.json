@@ -3,13 +3,13 @@
   "debug": false,
 
   "sp": {
-    "entityId": "https://sso-sandbox.aktechnoservices.com/metadata",
+    "entityId": "https://socials-sso.aktechnoservices.com/metadata",
     "assertionConsumerService": {
-      "url": "https://sso-sandbox.aktechnoservices.com/acs",
+      "url": "https://socials-sso.aktechnoservices.com/acs",
       "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
     },
     "singleLogoutService": {
-      "url": "https://sso-sandbox.aktechnoservices.com/slo",
+      "url": "https://socials-sso.aktechnoservices.com/slo",
       "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
     },
     "x509cert": "",
