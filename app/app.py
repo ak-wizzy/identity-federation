@@ -101,7 +101,8 @@ def index():
         authenticated="samlUserdata" in session,
         nameid=session.get("samlNameId"),
         login_time=session.get("login_time"),
-        debug=session.get("debug", False)
+        debug=session.get("debug", False),
+        version="v2.0.0"
     )
 
 @app.route("/login")

@@ -1,27 +1,258 @@
-<!doctype html>
-<html>
-<head>
-  <title>Logged out</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      margin: 2rem;
-    }
-    .muted {
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-  <h1>You have been logged out</h1>
+{% extends "base.html" %}
 
-  {% if session.get("last_logout") %}
-    <p class="muted">
-      Logout source: {{ session.get("last_logout").source }}<br>
-      Time (UTC): {{ session.get("last_logout").time }}
-    </p>
-  {% endif %}
+{% block title %}
+Session Ended
+{% endblock %}
 
-  <p><a href="/">Return to home</a></p>
-</body>
-</html>
+{% block page_title %}
+Enterprise Identity & Federation Showcase
+{% endblock %}
+
+{% block subtitle %}
+Your authenticated session has ended successfully
+{% endblock %}
+
+{% block content %}
+
+<div class="panel fade-up">
+
+    <div class="panel-body text-center">
+
+        <div style="font-size:5rem;color:#22c55e;margin-bottom:25px;">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+        </div>
+
+        <h2>
+
+            Session Successfully Ended
+
+        </h2>
+
+        <p>
+
+            Thank you for exploring the
+
+            <strong>Enterprise Identity & Federation Showcase.</strong>
+
+        </p>
+
+        <p>
+
+            Your authenticated application session has been securely terminated.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<div class="metric-grid fade-up">
+
+    <div class="metric-card">
+
+        <div class="metric-header">
+
+            Session Status
+
+        </div>
+
+        <div class="metric-body">
+
+            <div class="metric-label">
+
+                Authentication
+
+            </div>
+
+            <div class="metric-value">
+
+                Signed Out
+
+            </div>
+
+            <span class="status-pill status-success">
+
+                Complete
+
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="metric-card">
+
+        <div class="metric-header">
+
+            Security
+
+        </div>
+
+        <div class="metric-body">
+
+            <div class="metric-label">
+
+                Session
+
+            </div>
+
+            <div class="metric-value">
+
+                Closed
+
+            </div>
+
+            <span class="status-pill status-info">
+
+                Local Logout
+
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="metric-card">
+
+        <div class="metric-header">
+
+            Federation
+
+        </div>
+
+        <div class="metric-body">
+
+            <div class="metric-label">
+
+                Identity Provider
+
+            </div>
+
+            <div class="metric-value">
+
+                Session Complete
+
+            </div>
+
+            <span class="status-pill status-success">
+
+                Ready
+
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+{% if session.get("last_logout") %}
+
+<div class="developer-panel fade-up">
+
+    <div class="developer-header">
+
+        <i class="bi bi-info-circle-fill"></i>
+
+        Logout Information
+
+    </div>
+
+    <div class="developer-body">
+
+        <table class="table-ats">
+
+            <tr>
+
+                <th>Logout Source</th>
+
+                <td>
+
+                    {{ session.get("last_logout").source }}
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <th>Time (UTC)</th>
+
+                <td>
+
+                    {{ session.get("last_logout").time }}
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+
+
+<div class="panel fade-up">
+
+    <div class="panel-header">
+
+        Next Steps
+
+    </div>
+
+    <div class="panel-body">
+
+        <p>
+
+            You can restart the demonstration at any time by
+            authenticating with one of the supported identity providers.
+
+        </p>
+
+        <ul>
+
+            <li>Microsoft Entra External ID</li>
+
+            <li>Google Identity</li>
+
+            <li>Facebook Identity</li>
+
+            <li>GitHub Identity</li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+
+
+<div class="text-center mt-40">
+
+    <a
+        href="/"
+        class="btn-ats btn-primary-ats">
+
+        <i class="bi bi-arrow-clockwise"></i>
+
+        Start New Demonstration
+
+    </a>
+
+</div>
+
+{% endblock %}

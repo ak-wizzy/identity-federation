@@ -1,126 +1,573 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends "base.html" %}
 
-<title>AK~TECHNO IDP-SP SANDBOX</title>
+{% block title %}
+Enterprise Identity & Federation Showcase
+{% endblock %}
 
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+{% block page_title %}
+Enterprise Identity & Federation Showcase
+{% endblock %}
 
-<style>
+{% block subtitle %}
+Secure Social Identity Federation using Microsoft Entra External ID (CIAM)
+{% endblock %}
 
-body{
-background:#0f172a;
-color:white;
-font-family:system-ui;
-}
+{% block content %}
 
-.container-box{
-max-width:600px;
-margin:auto;
-margin-top:80px;
-padding:40px;
-background:#1e293b;
-border-radius:10px;
-box-shadow:0 0 30px rgba(0,0,0,0.4);
-text-align:center;
-}
+<!-- ===================================================== -->
+<!-- Hero                                                   -->
+<!-- ===================================================== -->
 
-.logo{
-width:120px;
-margin-bottom:20px;
-}
+<section class="hero fade-up">
 
-.btn-login{
-width:100%;
-margin-bottom:12px;
-font-weight:600;
-}
+    <h2>
+        Secure Customer Identity for Modern Applications
+    </h2>
 
-.status{
-margin-top:20px;
-font-size:14px;
-color:#cbd5f5;
-}
+    <p>
 
-</style>
+        Welcome to the <strong>Enterprise Identity & Federation Showcase</strong>.
 
-</head>
+        This live demonstration illustrates how
+        <strong>Microsoft Entra External ID (CIAM)</strong>
+        enables organisations to securely authenticate
+        customers, partners and external users using
+        trusted social identity providers.
 
-<body>
+    </p>
 
-<div class="container-box">
+    <p>
 
-<!-- Logo placeholder -->
-<img src="/static/logo.png" class="logo">
+        Whether you're building customer portals,
+        supplier portals, SaaS applications,
+        B2B collaboration platforms or public-facing
+        enterprise services, this Microsoft-supported
+        architecture delivers secure, scalable and
+        standards-based authentication.
 
-<h3>AK~TECHNO IDP-SP SANDBOX</h3>
+    </p>
 
-<p style="opacity:0.7;">
-SAML Authentication & Federation Playground
-</p>
+</section>
 
-<p class="subtitle">
-    Test modern federated authentication using Google, Facebook, and Apple ID through Microsoft Entra External ID.
-</p>
 
-<hr>
+<!-- ===================================================== -->
+<!-- Solution Overview                                      -->
+<!-- ===================================================== -->
 
-<a href="/login" class="btn btn-primary btn-login">
-Continue with Email
-</a>
+<div class="panel fade-up">
 
-<a href="/login?provider=google" class="btn btn-danger btn-login">
-Continue with Google
-</a>
+    <div class="panel-header">
 
-<a href="/login?provider=facebook" class="btn btn-primary btn-login">
-Continue with Facebook
-</a>
+        💡 Solution Overview
 
-<a href="/login?provider=apple" class="btn btn-dark btn-login">
-Continue with Apple ID
-</a>
+    </div>
 
-<hr>
+    <div class="panel-body">
+
+        <p>
+
+            This showcase demonstrates how Microsoft
+            Entra External ID acts as a trusted
+            Identity Provider while federating
+            authentication requests to external
+            identity providers.
+
+        </p>
+
+        <div class="info-banner">
+
+            <strong>What you'll experience</strong>
+
+            <ul class="mt-3">
+
+                <li>
+                    Authenticate using your preferred identity provider.
+                </li>
+
+                <li>
+                    Microsoft Entra External ID validates the authentication.
+                </li>
+
+                <li>
+                    A secure SAML assertion is issued.
+                </li>
+
+                <li>
+                    Your identity is established inside the protected application.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- Live Demo                                               -->
+<!-- ===================================================== -->
+
+<div class="panel fade-up">
+
+    <div class="panel-header">
+
+        🚀 Try the Live Demonstration
+
+    </div>
+
+    <div class="panel-body">
+
+        <p>
+
+            Choose an identity provider below to begin
+            the authentication journey.
+
+        </p>
+
+        <div class="provider-grid">
+
+            <!-- Microsoft -->
+
+            <a
+                href="/login"
+                class="provider-card">
+
+                <div class="provider-icon">
+
+                <i class="bi bi-microsoft"></i>
+
+                </div>
+
+                <div class="provider-title">
+
+                    Microsoft Account
+
+                </div>
+
+                <div class="provider-description">
+
+                    Authenticate using
+                    Microsoft Entra External ID.
+
+                </div>
+
+            </a>
+
+            <!-- Google -->
+
+            <a
+                href="/login?provider=google"
+                class="provider-card">
+
+                <div class="provider-icon">
+
+                <i class="bi bi-google"></i>
+
+                </div>
+
+                <div class="provider-title">
+
+                    Google
+
+                </div>
+
+                <div class="provider-description">
+
+                    Sign in using your
+                    Google account through
+                    Microsoft Entra External ID.
+
+                </div>
+
+            </a>
+
+            <!-- Facebook -->
+
+            <a
+                href="/login?provider=facebook"
+                class="provider-card">
+
+                <div class="provider-icon">
+
+                <i class="bi bi-facebook"></i>
+
+                </div>
+
+                <div class="provider-title">
+
+                    Facebook
+
+                </div>
+
+                <div class="provider-description">
+
+                    Authenticate using
+                    Facebook OAuth federation.
+
+                </div>
+
+            </a>
+
+            <!-- GitHub -->
+
+            <a
+                href="/login?provider=github"
+                class="provider-card">
+
+                <div class="provider-icon">
+
+                <i class="bi bi-github"></i>
+
+                </div>
+
+                <div class="provider-title">
+
+                    GitHub
+
+                </div>
+
+                <div class="provider-description">
+
+                    Authenticate using
+                    GitHub OAuth
+                    via Microsoft Entra External ID.
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- Technology Overview                                   -->
+<!-- ===================================================== -->
+
+<div class="metric-grid fade-up">
+
+    <!-- Platform -->
+
+    <div class="metric-card">
+
+        <div class="metric-header">
+
+            Platform
+
+        </div>
+
+        <div class="metric-body">
+
+            <div class="metric-label">
+
+                Identity Platform
+
+            </div>
+
+            <div class="metric-value">
+
+                Microsoft Entra External ID
+
+            </div>
+
+            <ul class="metric-list">
+
+                <li>Customer Identity (CIAM)</li>
+
+                <li>Enterprise Federation</li>
+
+                <li>Scalable Authentication</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- Federation -->
+
+    <div class="metric-card">
+
+        <div class="metric-header">
+
+            Federation
+
+        </div>
+
+        <div class="metric-body">
+
+            <div class="metric-label">
+
+                Identity Providers
+
+            </div>
+
+            <div class="metric-value">
+
+                Microsoft • Google • Facebook • GitHub
+
+            </div>
+
+            <ul class="metric-list">
+
+                <li>SAML 2.0</li>
+
+                <li>OAuth 2.0</li>
+
+                <li>OpenID Connect</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- Security -->
+
+    <div class="metric-card">
+
+        <div class="metric-header">
+
+            Security
+
+        </div>
+
+        <div class="metric-body">
+
+            <div class="metric-label">
+
+                Enterprise Security
+
+            </div>
+
+            <div class="metric-value">
+
+                Standards-Based Authentication
+
+            </div>
+
+            <ul class="metric-list">
+
+                <li>Signed Assertions</li>
+
+                <li>Encrypted Sessions</li>
+
+                <li>Claims-Based Identity</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- Authentication Status                                 -->
+<!-- ===================================================== -->
 
 {% if authenticated %}
 
-<a href="/claims" class="btn btn-secondary btn-login">
-    Developer Diagnostics
-</a>
+<div class="success-banner fade-up">
 
-{% endif %}
+    <h2>
 
-<div class="status">
+        <i class="bi bi-check-circle-fill"></i>
 
-{% if authenticated %}
+        Authentication Successful
 
-<p>Authenticated as:</p>
-<strong>{{ nameid }}</strong>
+    </h2>
 
-<br>
-Login time: {{ login_time }}
+    <p>
 
-<br><br>
+        Congratulations.
 
-<a href="/claims" class="btn btn-success">
-View Claims
-</a>
+        Your identity has been successfully authenticated
+        through Microsoft Entra External ID.
 
-<a href="/logout" class="btn btn-secondary">
-Logout
-</a>
+        A secure SAML assertion has been validated
+        and your application session has been established.
+
+    </p>
+
+</div>
+
+
+<div class="panel fade-up">
+
+    <div class="panel-header">
+
+        Identity Summary
+
+    </div>
+
+    <div class="panel-body">
+
+        <div class="summary-grid">
+
+            <div class="summary-card">
+
+                <div class="summary-label">
+
+                    Status
+
+                </div>
+
+                <div class="summary-value">
+
+                    <span class="status-pill status-success">
+
+                        Authenticated
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="summary-label">
+
+                    User
+
+                </div>
+
+                <div class="summary-value">
+
+                    {{ nameid }}
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="summary-label">
+
+                    Protocol
+
+                </div>
+
+                <div class="summary-value">
+
+                    SAML 2.0
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="summary-label">
+
+                    Identity Platform
+
+                </div>
+
+                <div class="summary-value">
+
+                    Microsoft Entra External ID
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="summary-label">
+
+                    Session Started
+
+                </div>
+
+                <div class="summary-value">
+
+                    {{ login_time }}
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="summary-label">
+
+                    Federation
+
+                </div>
+
+                <div class="summary-value">
+
+                    Active
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="mt-40">
+
+            <a
+                href="/claims"
+                class="btn-ats btn-primary-ats">
+
+                <i class="bi bi-terminal"></i>
+
+                Developer Diagnostics
+
+            </a>
+
+            <a
+                href="/logout"
+                class="btn-ats btn-secondary-ats">
+
+                <i class="bi bi-box-arrow-right"></i>
+
+                Sign Out
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
 
 {% else %}
 
-<p>Not authenticated</p>
+<div class="panel fade-up">
+
+    <div class="panel-header">
+
+        Authentication Status
+
+    </div>
+
+    <div class="panel-body">
+
+        <p>
+
+            You are currently not authenticated.
+
+        </p>
+
+        <div class="warning-banner">
+
+            Select one of the supported identity providers
+            above to experience a complete authentication
+            flow using Microsoft Entra External ID.
+
+        </div>
+
+    </div>
+
+</div>
 
 {% endif %}
-
-</div>
-
-</div>
-
-</body>
-</html>

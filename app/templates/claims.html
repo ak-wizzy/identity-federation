@@ -1,129 +1,500 @@
-<!doctype html>
-<html>
-<head>
-  <title>SAML Claims</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 2rem;
-      line-height: 1.5;
-    }
-    h1, h2 {
-      margin-top: 1.5rem;
-    }
-    ul {
-      margin-left: 1.5rem;
-    }
-    .section {
-      margin-bottom: 2rem;
-    }
-    .muted {
-      color: #666;
-      font-size: 0.9em;
-    }
-    details {
-      margin-top: 0.5rem;
-    }
-    code {
-      background: #f4f4f4;
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
-    }
-  </style>
-</head>
+{% extends "base.html" %}
 
-<body>
-  <h1>SAML Claims</h1>
+{% block title %}
+Authentication Successful
+{% endblock %}
 
-  <!-- Session Overview -->
-  <div class="section">
-    <h2>Session Overview</h2>
-    <ul>
-      <li><strong>NameID:</strong> {{ nameid }}</li>
-      {% if session_index %}
-        <li><strong>Session Index:</strong> {{ session_index }}</li>
-      {% endif %}
-      {% if session.get("login_time") %}
-        <li><strong>Login time (UTC):</strong> {{ session.get("login_time") }}</li>
-      {% endif %}
-      <li><strong>Roles:</strong> {{ roles | join(", ") if roles else "None" }}</li>
-      <li><strong>Groups received:</strong> {{ groups | length }}</li>
-    </ul>
-  </div>
+{% block page_title %}
+Enterprise Identity & Federation Showcase
+{% endblock %}
 
-  <!-- Derived Roles -->
-  <div class="section">
-    <h2>Derived Roles</h2>
-    {% if roles %}
-      <ul>
-        {% for role in roles %}
-          <li>{{ role }}</li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p class="muted">No roles derived for this user.</p>
-    {% endif %}
-  </div>
+{% block subtitle %}
+Authentication completed successfully using Microsoft Entra External ID
+{% endblock %}
 
-  <!-- Group Information -->
-  <div class="section">
-    <h2>Group Information</h2>
-    <p>Groups received from Entra ID: <strong>{{ groups | length }}</strong></p>
+{% block content %}
 
-    {% if debug and groups %}
-      <details>
-        <summary>Show raw group Object IDs (debug)</summary>
-        <ul>
-          {% for group in groups %}
-            <li>{{ group }}</li>
-          {% endfor %}
-        </ul>
-      </details>
-    {% endif %}
-  </div>
+<div class="success-banner fade-up">
 
-  <!-- Certificate Awareness (read-only for now) -->
-  {% if debug %}
-    <div class="section">
-      <h2>Certificate Validation</h2>
-      {% if session.get("idp_cert_fingerprint") %}
-        <p class="muted">
-          Assertion validated using IdP certificate fingerprint:
-          <code>{{ session.get("idp_cert_fingerprint") }}</code>
-        </p>
-      {% else %}
-        <p class="muted">
-          Certificate fingerprint not available (cert rotation awareness not enabled yet).
-        </p>
-      {% endif %}
+    <h2>
+
+        <i class="bi bi-patch-check-fill"></i>
+
+        Authentication Successful
+
+    </h2>
+
+    <p>
+
+        Your identity has been successfully authenticated through
+        <strong>Microsoft Entra External ID (CIAM)</strong>.
+
+        A signed SAML assertion has been validated and a secure
+        application session has been established.
+
+    </p>
+
+</div>
+
+
+<div class="panel fade-up">
+
+    <div class="panel-header">
+
+        Identity Summary
+
     </div>
-  {% endif %}
 
-  <!-- Raw Claims -->
-  <div class="section">
-    <h2>Raw SAML Claims</h2>
-    <ul>
-      {% for key, values in attributes.items() %}
-        <li>
-          <strong>{{ key }}</strong>: {{ values }}
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+    <div class="panel-body">
 
-  <hr>
+        <div class="summary-grid">
 
-  <p>
-    <a href="/">Home</a>
-    {% if debug %}
-      | <span class="muted">Debug mode enabled</span>
-    {% endif %}
-  </p>
+            <div class="summary-card">
 
-  <p>
-    <a href="/logout">Local logout</a> |
-    <a href="/slo">Federated logout (SLO)</a>
-  </p>
+                <div class="summary-label">
 
-</body>
-</html>
+                    User
+
+                </div>
+
+                <div class="summary-value">
+
+                    {{ nameid }}
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="summary-label">
+
+                    Authentication
+
+                </div>
+
+                <div class="summary-value">
+
+                    <span class="status-pill status-success">
+
+                        Successful
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="summary-label">
+
+                    Identity Platform
+
+                </div>
+
+                <div class="summary-value">
+
+                    Microsoft Entra External ID
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="summary-label">
+
+                    Protocol
+
+                </div>
+
+                <div class="summary-value">
+
+                    SAML 2.0
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="summary-label">
+
+                    Session Index
+
+                </div>
+
+                <div class="summary-value">
+
+                    {{ session_index if session_index else "Available" }}
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="summary-label">
+
+                    Login Time
+
+                </div>
+
+                <div class="summary-value">
+
+                    {{ session.get("login_time") }}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="metric-grid fade-up">
+
+    <div class="metric-card">
+
+        <div class="metric-header">
+
+            Federation
+
+        </div>
+
+        <div class="metric-body">
+
+            <div class="metric-label">
+
+                Roles
+
+            </div>
+
+            <div class="metric-value">
+
+                {{ roles|length }}
+
+            </div>
+
+            <ul class="metric-list">
+
+                {% if roles %}
+
+                    {% for role in roles %}
+
+                    <li>{{ role }}</li>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <li>No application roles assigned.</li>
+
+                {% endif %}
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="metric-card">
+
+        <div class="metric-header">
+
+            Group Membership
+
+        </div>
+
+        <div class="metric-body">
+
+            <div class="metric-label">
+
+                Groups Received
+
+            </div>
+
+            <div class="metric-value">
+
+                {{ groups|length }}
+
+            </div>
+
+            <ul class="metric-list">
+
+                <li>
+
+                    Microsoft Entra External ID
+
+                </li>
+
+                <li>
+
+                    Claims Mapping Successful
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="metric-card">
+
+        <div class="metric-header">
+
+            Security
+
+        </div>
+
+        <div class="metric-body">
+
+            <div class="metric-label">
+
+                Assertion
+
+            </div>
+
+            <div class="metric-value">
+
+                Validated
+
+            </div>
+
+            <ul class="metric-list">
+
+                <li>Signed SAML Assertion</li>
+
+                <li>Secure Session Established</li>
+
+                <li>Claims Successfully Processed</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="developer-panel fade-up">
+
+    <div class="developer-header">
+
+        <i class="bi bi-terminal-fill"></i>
+
+        Developer Diagnostics
+
+    </div>
+
+    <div class="developer-body">
+
+        <details>
+
+            <summary>
+
+                Session Information
+
+            </summary>
+
+            <table class="table-ats">
+
+                <tr>
+
+                    <th>NameID</th>
+
+                    <td>{{ nameid }}</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>Session Index</th>
+
+                    <td>{{ session_index }}</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>Login Time</th>
+
+                    <td>{{ session.get("login_time") }}</td>
+
+                </tr>
+
+            </table>
+
+        </details>
+
+
+
+        <details>
+
+            <summary>
+
+                Application Roles
+
+            </summary>
+
+            <table class="table-ats">
+
+                {% if roles %}
+
+                    {% for role in roles %}
+
+                    <tr>
+
+                        <td>{{ role }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <tr>
+
+                        <td>No roles assigned.</td>
+
+                    </tr>
+
+                {% endif %}
+
+            </table>
+
+        </details>
+
+
+
+        <details>
+
+            <summary>
+
+                Group Object IDs
+
+            </summary>
+
+            <table class="table-ats">
+
+                {% if groups %}
+
+                    {% for group in groups %}
+
+                    <tr>
+
+                        <td>{{ group }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <tr>
+
+                        <td>No groups received.</td>
+
+                    </tr>
+
+                {% endif %}
+
+            </table>
+
+        </details>
+
+
+
+        <details open>
+
+            <summary>
+
+                Raw SAML Claims
+
+            </summary>
+
+            <table class="table-ats">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Claim</th>
+
+                        <th>Value</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                {% for key, values in attributes.items() %}
+
+                    <tr>
+
+                        <td>
+
+                            {{ key }}
+
+                        </td>
+
+                        <td>
+
+                            {{ values }}
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </details>
+
+    </div>
+
+</div>
+
+
+
+<div class="text-center mt-40">
+
+    <a
+        href="/"
+        class="btn-ats btn-primary-ats">
+
+        <i class="bi bi-house-door-fill"></i>
+
+        Return Home
+
+    </a>
+
+    <a
+        href="/logout"
+        class="btn-ats btn-secondary-ats">
+
+        <i class="bi bi-box-arrow-right"></i>
+
+        Sign Out
+
+    </a>
+
+</div>
+
+{% endblock %}
