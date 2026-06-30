@@ -1,8 +1,9 @@
 services:
   federated-socials-sso:
-    build: .
-    container_name: akwizzy/pilot-repo:federated-socials-sso
+    image: akwizzy/pilot-repo:federated-socials-sso
+    container_name: federated-socials-sso
     restart: unless-stopped
+
     environment:
       - FLASK_SECRET_KEY=${FLASK_SECRET_KEY}
       - SAML_IDP_ENTITY_ID=${SAML_IDP_ENTITY_ID}
@@ -10,7 +11,10 @@ services:
       - SAML_IDP_X509CERT=${SAML_IDP_X509CERT}
       - SAML_DEBUG=${SAML_DEBUG}
       - SAML_ENABLE_SLO=${SAML_ENABLE_SLO}
-      
+
+      # Showcase Framework
+      - APP_VERSION=${APP_VERSION}
+
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.socials-sso.rule=Host(`socials-sso.aktechnoservices.com`)"
@@ -18,10 +22,10 @@ services:
       - "traefik.http.routers.socials-sso.tls.certresolver=cloudflare"
       - "traefik.http.routers.socials-sso.middlewares=secured-chain@docker"
       - "traefik.http.services.socials-sso.loadbalancer.server.port=5000"
-    
+
     networks:
-      - reverse-proxy                  #same network with Postfix-relay
-   
+      - reverse-proxy
+
 networks:
   reverse-proxy:
     external: true
