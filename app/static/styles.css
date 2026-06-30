@@ -1,1275 +1,912 @@
 /* ==========================================================
-   AK TECHNO SERVICES LTD.
-   Solution Showcase Framework
-   Version 2.0
-========================================================== */
+   AK Techno Services Showcase Framework
+   Version: 2.0.0
+   ========================================================== */
 
 :root{
 
---bg:#09111f;
+    --bg:#0b1220;
+    --bg-card:#121b2f;
+    --bg-card-light:#18233d;
 
---surface:#152238;
+    --border:#26334f;
 
---surface-2:#1d2c46;
+    --text:#f8fafc;
+    --text-muted:#b6c2d2;
 
---surface-3:#243652;
+    --primary:#2563eb;
+    --primary-hover:#1d4ed8;
 
---border:#324866;
+    --success:#22c55e;
+    --warning:#f59e0b;
+    --danger:#ef4444;
 
---primary:#2f81f7;
+    --radius:18px;
 
---primary-hover:#4d95ff;
+    --shadow:
+        0 10px 30px rgba(0,0,0,.35);
 
---success:#2bb673;
-
---warning:#f59e0b;
-
---danger:#ef4444;
-
---text:#ffffff;
-
---muted:#a7b4c7;
-
---radius:18px;
-
---shadow:
-0 12px 35px rgba(0,0,0,.35);
-
+    --transition:.25s ease;
 }
 
-/* ==========================================================
-Reset
-========================================================== */
-
 *{
-
-margin:0;
-
-padding:0;
-
-box-sizing:border-box;
-
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
 
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 
 }
 
 body{
 
-background:var(--bg);
+    background:var(--bg);
 
-font-family:"Inter",
-sans-serif;
+    color:var(--text);
 
-color:var(--text);
+    font-family:
+        Inter,
+        system-ui,
+        sans-serif;
 
-line-height:1.6;
-
-min-height:100vh;
-
+    line-height:1.7;
 }
 
 /* ==========================================================
-Layout
-========================================================== */
+   Layout
+   ========================================================== */
+
+.container{
+
+    max-width:1250px;
+
+}
 
 .app-shell{
 
-display:flex;
-
-flex-direction:column;
-
-min-height:100vh;
+    min-height:100vh;
 
 }
 
 /* ==========================================================
-Header
-========================================================== */
+   Header
+   ========================================================== */
 
 .site-header{
 
-background:linear-gradient(
-180deg,
-#16253b,
-#101b2f);
+    background:#111827;
 
-border-bottom:1px solid var(--border);
+    border-bottom:1px solid var(--border);
 
-padding:30px 0;
+    position:sticky;
 
-box-shadow:0 15px 40px rgba(0,0,0,.45);
+    top:0;
 
-position:sticky;
+    z-index:100;
 
-top:0;
-
-z-index:999;
-
-backdrop-filter:blur(10px);
+    backdrop-filter:blur(16px);
 
 }
 
 .header-row{
 
-display:flex;
+    display:flex;
 
-justify-content:space-between;
+    justify-content:space-between;
 
-align-items:center;
+    align-items:center;
 
-gap:30px;
+    gap:40px;
 
-flex-wrap:wrap;
+    padding:22px 0;
 
 }
 
 .brand{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-gap:22px;
+    gap:22px;
 
 }
 
 .brand-logo{
 
-width:90px;
-
-height:auto;
+    width:72px;
 
 }
 
 .brand-company{
 
-font-size:.85rem;
+    color:#3b82f6;
 
-letter-spacing:3px;
+    font-size:.82rem;
 
-font-weight:700;
+    font-weight:700;
 
-color:#4ea1ff;
+    letter-spacing:2px;
 
-text-transform:uppercase;
-
-margin-bottom:8px;
+    text-transform:uppercase;
 
 }
 
 .brand-title{
 
-font-size:2.6rem;
+    font-size:1.9rem;
 
-font-weight:800;
+    font-weight:700;
 
-margin-bottom:6px;
+    margin:6px 0;
 
 }
 
 .brand-subtitle{
 
-color:var(--muted);
+    color:var(--text-muted);
 
-font-size:1.05rem;
-
-margin:0;
-
-max-width:760px;
+    margin:0;
 
 }
 
 .version-badge{
 
-background:linear-gradient(
-135deg,
-#2563eb,
-#1d4ed8);
+    background:#1e293b;
 
-padding:14px 28px;
+    border:1px solid var(--border);
 
-border-radius:999px;
+    color:#8ab4ff;
 
-font-weight:700;
+    padding:8px 18px;
 
-font-size:1rem;
+    border-radius:999px;
 
-white-space:nowrap;
+    font-weight:600;
 
 }
 
 /* ==========================================================
-Typography
-========================================================== */
-
-h2{
-
-font-weight:700;
-
-margin-bottom:15px;
-
-}
-
-h3{
-
-font-weight:700;
-
-margin-bottom:15px;
-
-}
-
-p{
-
-color:var(--muted);
-
-margin-bottom:15px;
-
-}
-
-/* ==========================================================
-Panels
-========================================================== */
-
-.panel{
-
-background:var(--surface);
-
-border:1px solid var(--border);
-
-border-radius:var(--radius);
-
-box-shadow:var(--shadow);
-
-margin-bottom:30px;
-
-overflow:hidden;
-
-}
-
-.panel-header{
-
-padding:18px 24px;
-
-background:#1b2940;
-
-border-bottom:1px solid var(--border);
-
-font-size:1.2rem;
-
-font-weight:700;
-
-}
-
-.panel-body{
-
-padding:28px;
-
-}
-
-/* ==========================================================
-Hero Panel
-========================================================== */
+   Hero
+   ========================================================== */
 
 .hero{
 
-background:
+    background:linear-gradient(
+        135deg,
+        #16203a,
+        #111827);
 
-radial-gradient(circle at top right,
-rgba(37,99,235,.25),
-transparent 40%),
+    border:1px solid var(--border);
 
-linear-gradient(
-135deg,
-#1d3d70,
-#16253b);
+    border-radius:var(--radius);
 
-padding:55px;
+    padding:70px;
 
-border-radius:24px;
+    margin-bottom:36px;
 
-border:1px solid #3566b8;
+    box-shadow:var(--shadow);
 
-box-shadow:var(--shadow);
+}
 
-margin-bottom:45px;
+.hero-badge{
 
-position:relative;
+    display:inline-block;
 
-overflow:hidden;
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:#1d4ed8;
+
+    color:white;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:24px;
 
 }
 
 .hero h2{
 
-font-size:2rem;
+    font-size:2.6rem;
 
-margin-bottom:18px;
+    font-weight:800;
+
+    margin-bottom:22px;
 
 }
 
 .hero p{
 
-font-size:1.05rem;
+    color:var(--text-muted);
 
-max-width:900px;
+    font-size:1.05rem;
+
+    max-width:900px;
+
+    margin-bottom:20px;
+
+}
+
+.hero strong{
+
+    color:white;
 
 }
 
 /* ==========================================================
-Information Banner
-========================================================== */
+   Panels
+   ========================================================== */
+
+.panel{
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    margin-bottom:34px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+.panel-header{
+
+    background:#18233d;
+
+    padding:18px 26px;
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.panel-body{
+
+    padding:34px;
+
+}
+
+/* ==========================================================
+   Banners
+   ========================================================== */
 
 .info-banner{
 
-background:#19345d;
+    background:#16203a;
 
-border-left:5px solid var(--primary);
+    border-left:4px solid var(--primary);
 
-padding:22px;
+    padding:24px;
 
-border-radius:14px;
+    margin-top:26px;
 
-margin-top:25px;
-
-}
-
-/* ==========================================================
-Footer
-========================================================== */
-
-.site-footer{
-
-margin-top:auto;
-
-background:#111c30;
-
-border-top:1px solid var(--border);
-
-padding:55px 0;
+    border-radius:12px;
 
 }
-
-.footer-grid{
-
-display:grid;
-
-grid-template-columns:2fr 1fr;
-
-gap:40px;
-
-}
-
-.tech-tags{
-
-display:flex;
-
-flex-wrap:wrap;
-
-gap:12px;
-
-margin-top:18px;
-
-}
-
-.tech-tags span{
-
-background:#1f3556;
-
-padding:8px 14px;
-
-border-radius:999px;
-
-font-size:.85rem;
-
-}
-
-.footer-bottom{
-
-margin-top:35px;
-
-padding-top:25px;
-
-border-top:1px solid var(--border);
-
-text-align:center;
-
-color:var(--muted);
-
-font-size:.9rem;
-
-}
-
-.separator{
-
-margin:0 10px;
-
-}
-
-/* ==========================================================
-Utilities
-========================================================== */
-
-.text-muted-custom{
-
-color:var(--muted);
-
-}
-
-.rounded-xl{
-
-border-radius:20px;
-
-}
-
-.shadow-lg-custom{
-
-box-shadow:var(--shadow);
-
-}
-
-/* ==========================================================
-Responsive
-========================================================== */
-
-@media(max-width:992px){
-
-.brand-title{
-
-font-size:2rem;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.header-row{
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
-.brand{
-
-flex-direction:column;
-
-}
-
-.footer-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.hero{
-
-padding:28px;
-
-}
-
-.hero h2{
-
-font-size:1.6rem;
-
-}
-
-}
-
-/* ==========================================================
-   PHASE 1B
-   Reusable Components
-========================================================== */
-
-
-/* ==========================================================
-Buttons
-========================================================== */
-
-.btn-ats{
-
-display:inline-flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:10px;
-
-padding:14px 22px;
-
-border-radius:14px;
-
-font-weight:600;
-
-text-decoration:none;
-
-transition:all .25s ease;
-
-border:1px solid transparent;
-
-cursor:pointer;
-
-}
-
-.btn-ats:hover{
-
-transform:translateY(-2px);
-
-text-decoration:none;
-
-}
-
-.btn-primary-ats{
-
-background:var(--primary);
-
-color:#fff;
-
-}
-
-.btn-primary-ats:hover{
-
-background:var(--primary-hover);
-
-color:#fff;
-
-}
-
-.btn-secondary-ats{
-
-background:var(--surface-2);
-
-border:1px solid var(--border);
-
-color:#fff;
-
-}
-
-.btn-secondary-ats:hover{
-
-background:var(--surface-3);
-
-color:#fff;
-
-}
-
-.btn-success-ats{
-
-background:var(--success);
-
-color:#fff;
-
-}
-
-.btn-success-ats:hover{
-
-filter:brightness(1.08);
-
-color:#fff;
-
-}
-
-.btn-outline-ats{
-
-background:transparent;
-
-border:1px solid var(--primary);
-
-color:var(--primary);
-
-}
-
-.btn-outline-ats:hover{
-
-background:var(--primary);
-
-color:#fff;
-
-}
-
-
-/* ==========================================================
-Provider Cards
-========================================================== */
-
-.provider-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-
-gap:24px;
-
-margin-top:30px;
-
-}
-
-.provider-card{
-
-display:block;
-
-background:var(--surface);
-
-border:1px solid var(--border);
-
-border-radius:18px;
-
-padding:28px;
-
-text-decoration:none;
-
-color:#fff;
-
-transition:all .25s ease;
-
-box-shadow:var(--shadow);
-
-}
-
-.provider-card:hover{
-
-transform:translateY(-6px);
-
-border-color:var(--primary);
-
-box-shadow:0 20px 45px rgba(0,0,0,.45);
-
-color:#fff;
-
-text-decoration:none;
-
-}
-
-.provider-icon{
-
-font-size:2rem;
-
-margin-bottom:18px;
-
-}
-
-.provider-title{
-
-font-size:1.25rem;
-
-font-weight:700;
-
-margin-bottom:10px;
-
-}
-
-.provider-description{
-
-color:var(--muted);
-
-font-size:.95rem;
-
-line-height:1.6;
-
-}
-
-
-/* ==========================================================
-Metric Cards
-========================================================== */
-
-.metric-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-gap:24px;
-
-margin-top:35px;
-
-}
-
-.metric-card{
-
-background:var(--surface);
-
-border-radius:18px;
-
-overflow:hidden;
-
-border:1px solid var(--border);
-
-box-shadow:var(--shadow);
-
-}
-
-.metric-header{
-
-padding:18px 22px;
-
-background:#1a2942;
-
-font-weight:700;
-
-font-size:1.1rem;
-
-border-bottom:1px solid var(--border);
-
-}
-
-.metric-body{
-
-padding:24px;
-
-}
-
-.metric-label{
-
-font-size:.85rem;
-
-text-transform:uppercase;
-
-letter-spacing:1px;
-
-color:var(--muted);
-
-margin-bottom:8px;
-
-}
-
-.metric-value{
-
-font-size:1.1rem;
-
-font-weight:700;
-
-margin-bottom:18px;
-
-}
-
-.metric-list{
-
-list-style:none;
-
-padding:0;
-
-margin:0;
-
-}
-
-.metric-list li{
-
-padding:8px 0;
-
-border-bottom:1px solid rgba(255,255,255,.06);
-
-}
-
-.metric-list li:last-child{
-
-border-bottom:none;
-
-}
-
-
-/* ==========================================================
-Status Pills
-========================================================== */
-
-.status-pill{
-
-display:inline-block;
-
-padding:7px 16px;
-
-border-radius:999px;
-
-font-size:.8rem;
-
-font-weight:700;
-
-}
-
-.status-success{
-
-background:rgba(34,197,94,.15);
-
-color:#7ee787;
-
-}
-
-.status-warning{
-
-background:rgba(245,158,11,.15);
-
-color:#ffd166;
-
-}
-
-.status-danger{
-
-background:rgba(239,68,68,.15);
-
-color:#ff9d9d;
-
-}
-
-.status-info{
-
-background:rgba(59,130,246,.15);
-
-color:#7dc3ff;
-
-}
-
-
-/* ==========================================================
-Success Banner
-========================================================== */
 
 .success-banner{
 
-background:linear-gradient(
-135deg,
-#164d32,
-#123d28);
+    background:#163320;
 
-border:1px solid #2bb673;
+    border-left:5px solid var(--success);
 
-border-radius:18px;
+    padding:28px;
 
-padding:32px;
+    border-radius:18px;
 
-margin-bottom:35px;
-
-box-shadow:var(--shadow);
+    margin-bottom:34px;
 
 }
 
 .success-banner h2{
 
-margin-bottom:12px;
+    margin-bottom:14px;
 
 }
-
-.success-banner p{
-
-color:#d4ffe7;
-
-margin:0;
-
-}
-
-
-/* ==========================================================
-Warning Banner
-========================================================== */
 
 .warning-banner{
 
-background:#4b3209;
+    background:#2f240b;
 
-border:1px solid #f59e0b;
+    border-left:5px solid var(--warning);
 
-padding:24px;
+    padding:24px;
 
-border-radius:18px;
-
-margin-bottom:30px;
+    border-radius:16px;
 
 }
-
 
 /* ==========================================================
-Identity Summary
-========================================================== */
+   Buttons
+   ========================================================== */
 
-.summary-grid{
+.btn-ats{
 
-display:grid;
+    display:inline-flex;
 
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    align-items:center;
 
-gap:20px;
+    gap:10px;
 
-margin-top:30px;
+    text-decoration:none;
 
-}
+    padding:14px 26px;
 
-.summary-card{
+    border-radius:12px;
 
-background:var(--surface);
+    font-weight:600;
 
-border:1px solid var(--border);
-
-border-radius:16px;
-
-padding:24px;
+    transition:var(--transition);
 
 }
 
-.summary-label{
+.btn-primary-ats{
 
-font-size:.8rem;
+    background:var(--primary);
 
-text-transform:uppercase;
-
-letter-spacing:1px;
-
-color:var(--muted);
-
-margin-bottom:10px;
+    color:white;
 
 }
 
-.summary-value{
+.btn-primary-ats:hover{
 
-font-size:1.1rem;
+    background:var(--primary-hover);
 
-font-weight:700;
-
-word-break:break-word;
+    transform:translateY(-2px);
 
 }
 
+.btn-secondary-ats{
+
+    background:#273449;
+
+    color:white;
+
+}
+
+.btn-secondary-ats:hover{
+
+    background:#334155;
+
+    transform:translateY(-2px);
+
+}
 
 /* ==========================================================
-Tables
-========================================================== */
+   Utilities
+   ========================================================== */
 
-.table-ats{
+.mt-3{
 
-width:100%;
-
-border-collapse:collapse;
-
-margin-top:20px;
+    margin-top:1rem;
 
 }
 
-.table-ats th{
+.mt-4{
 
-background:#1a2942;
-
-padding:14px;
-
-text-align:left;
+    margin-top:1.5rem;
 
 }
 
-.table-ats td{
+.mt-40{
 
-padding:14px;
-
-border-top:1px solid var(--border);
-
-vertical-align:top;
+    margin-top:40px;
 
 }
-
-.table-ats tr:hover{
-
-background:rgba(255,255,255,.03);
-
-}
-
-
-/* ==========================================================
-Developer Accordion
-========================================================== */
-
-.developer-panel{
-
-background:var(--surface);
-
-border-radius:18px;
-
-border:1px solid var(--border);
-
-margin-top:40px;
-
-overflow:hidden;
-
-}
-
-.developer-header{
-
-padding:22px;
-
-background:#1a2942;
-
-font-weight:700;
-
-}
-
-.developer-body{
-
-padding:25px;
-
-}
-
-details{
-
-border:1px solid var(--border);
-
-border-radius:14px;
-
-margin-bottom:16px;
-
-overflow:hidden;
-
-}
-
-summary{
-
-padding:16px;
-
-cursor:pointer;
-
-background:#22334d;
-
-font-weight:600;
-
-}
-
-details[open] summary{
-
-border-bottom:1px solid var(--border);
-
-}
-
-details>*:not(summary){
-
-padding:18px;
-
-}
-
-
-/* ==========================================================
-Code Blocks
-========================================================== */
-
-pre{
-
-background:#08111f;
-
-border:1px solid var(--border);
-
-border-radius:14px;
-
-padding:18px;
-
-overflow:auto;
-
-}
-
-code{
-
-color:#9cdcfe;
-
-}
-
-
-/* ==========================================================
-Badges
-========================================================== */
-
-.tech-badge{
-
-display:inline-block;
-
-background:#21385a;
-
-padding:8px 14px;
-
-border-radius:999px;
-
-margin:4px;
-
-font-size:.85rem;
-
-}
-
-
-/* ==========================================================
-Animations
-========================================================== */
 
 .fade-up{
 
-animation:fadeUp .6s ease;
+    animation:fadeUp .5s ease both;
 
 }
 
 @keyframes fadeUp{
 
-from{
+    from{
 
-opacity:0;
+        opacity:0;
 
-transform:translateY(20px);
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
 
 }
 
-to{
+/* ==========================================================
+   Provider Cards
+   ========================================================== */
 
-opacity:1;
+.provider-grid{
 
-transform:translateY(0);
+    display:grid;
 
-}
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:24px;
+
+    margin-top:30px;
 
 }
 
 .provider-card{
 
-position:relative;
+    display:flex;
 
-overflow:hidden;
+    flex-direction:column;
 
-}
+    align-items:center;
 
-.provider-card::before{
+    justify-content:center;
 
-content:"";
+    text-align:center;
 
-position:absolute;
+    text-decoration:none;
 
-top:0;
+    color:var(--text);
 
-left:-120%;
+    background:var(--bg-card-light);
 
-width:100%;
+    border:1px solid var(--border);
 
-height:100%;
+    border-radius:18px;
 
-background:
+    padding:32px 24px;
 
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.08),
-transparent);
+    transition:all .25s ease;
 
-transition:.6s;
+    min-height:240px;
 
 }
 
-.provider-card:hover::before{
+.provider-card:hover{
 
-left:120%;
+    transform:translateY(-6px);
 
-}
+    border-color:#3b82f6;
 
-/* ==========================================================
-Spacing Helpers
-========================================================== */
+    box-shadow:
+        0 15px 40px rgba(37,99,235,.20);
 
-.mt-40{
-
-margin-top:40px;
+    color:white;
 
 }
-
-.mt-60{
-
-margin-top:60px;
-
-}
-
-.mb-40{
-
-margin-bottom:40px;
-
-}
-
-.mb-60{
-
-margin-bottom:60px;
-
-}
-
-.text-center{
-
-text-align:center;
-
-}
-
-
-/* ==========================================================
-Responsive
-========================================================== */
-
-@media(max-width:768px){
-
-.provider-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.metric-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.summary-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.btn-ats{
-
-width:100%;
-
-}
-
-}
-
-/* ==========================================
-Provider Icons
-========================================== */
 
 .provider-icon{
 
-font-size:3rem;
+    font-size:2.7rem;
 
-margin-bottom:18px;
+    color:#60a5fa;
 
-color:#60a5fa;
-
-transition:.25s;
-
-}
-
-.provider-card:hover .provider-icon{
-
-transform:scale(1.08);
-
-color:white;
+    margin-bottom:18px;
 
 }
 
 .provider-title{
 
-font-size:1.3rem;
+    font-size:1.2rem;
 
-font-weight:700;
+    font-weight:700;
 
-margin-bottom:12px;
+    margin-bottom:12px;
 
 }
 
 .provider-description{
 
-font-size:.95rem;
+    color:var(--text-muted);
 
-line-height:1.6;
+    font-size:.95rem;
 
-color:var(--muted);
+    line-height:1.6;
+
+}
+
+/* ==========================================================
+   Metrics
+   ========================================================== */
+
+.metric-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:28px;
+
+    margin:34px 0;
+
+}
+
+.metric-card{
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    transition:.25s;
+
+    box-shadow:var(--shadow);
+
+}
+
+.metric-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.metric-header{
+
+    background:#1b2740;
+
+    padding:18px 24px;
+
+    font-weight:700;
+
+    font-size:1.05rem;
+
+}
+
+.metric-body{
+
+    padding:26px;
+
+}
+
+.metric-label{
+
+    color:#8ab4ff;
+
+    text-transform:uppercase;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:14px;
+
+}
+
+.metric-value{
+
+    font-size:1.3rem;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.metric-list{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.metric-list li{
+
+    padding:8px 0;
+
+    color:var(--text-muted);
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.metric-list li:last-child{
+
+    border:none;
+
+}
+
+/* ==========================================================
+   Summary Cards
+   ========================================================== */
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+    gap:20px;
+
+}
+
+.summary-card{
+
+    background:var(--bg-card-light);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:22px;
+
+}
+
+.summary-label{
+
+    color:#93c5fd;
+
+    text-transform:uppercase;
+
+    font-size:.78rem;
+
+    letter-spacing:1px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.summary-value{
+
+    font-size:1.05rem;
+
+    font-weight:600;
+
+    word-break:break-word;
+
+}
+
+/* ==========================================================
+   Status Pills
+   ========================================================== */
+
+.status-pill{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+}
+
+.status-success{
+
+    background:rgba(34,197,94,.15);
+
+    color:#4ade80;
+
+}
+
+/* ==========================================================
+   Footer
+   ========================================================== */
+
+.site-footer{
+
+    margin-top:70px;
+
+    background:#111827;
+
+    border-top:1px solid var(--border);
+
+    padding:55px 0;
+
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:60px;
+
+}
+
+.footer-grid h5{
+
+    margin-bottom:18px;
+
+    font-weight:700;
+
+}
+
+.footer-grid p{
+
+    color:var(--text-muted);
+
+}
+
+.tech-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.tech-tags span{
+
+    background:#1b2740;
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    padding:8px 14px;
+
+    font-size:.85rem;
+
+}
+
+.footer-bottom{
+
+    margin-top:30px;
+
+    color:#94a3b8;
+
+    text-align:center;
+
+    font-size:.9rem;
+
+}
+
+.separator{
+
+    margin:0 10px;
+
+}
+
+/* ==========================================================
+   Bootstrap Icon Alignment
+   ========================================================== */
+
+.bi{
+
+    vertical-align:-0.125em;
+
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width:992px){
+
+    .header-row{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:24px;
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .hero{
+
+        padding:40px 28px;
+
+    }
+
+    .hero h2{
+
+        font-size:2rem;
+
+    }
+
+    .panel-body{
+
+        padding:24px;
+
+    }
+
+    .brand{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .brand-title{
+
+        font-size:1.5rem;
+
+    }
+
+    .provider-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .metric-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .summary-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .btn-ats{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .hero h2{
+
+        font-size:1.7rem;
+
+    }
+
+    .hero{
+
+        padding:30px 22px;
+
+    }
+
+    .panel-header{
+
+        font-size:1rem;
+
+    }
 
 }
