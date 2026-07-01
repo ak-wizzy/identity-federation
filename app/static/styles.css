@@ -125,7 +125,7 @@ body{
 
     color:#3b82f6;
 
-    font-size:.82rem;
+    font-size:.78rem;
 
     font-weight:700;
 
@@ -137,7 +137,7 @@ body{
 
 .brand-title{
 
-    font-size:1.9rem;
+    font-size:1.5rem;
 
     font-weight:700;
 
@@ -165,7 +165,7 @@ body{
 
     border-radius:999px;
 
-    font-weight:600;
+    font-weight:550;
 
 }
 
@@ -765,7 +765,9 @@ body{
 
     color:#94a3b8;
 
-    font-size:.95rem;
+    font-size:.90rem;
+
+    white-space:nowrap;
 
 }
 

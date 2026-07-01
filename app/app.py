@@ -98,6 +98,7 @@ def init_saml_auth(req):
 def index():
     return render_template(
         "index.html",
+        year=datetime.utcnow().year,
         authenticated="samlUserdata" in session,
         nameid=session.get("samlNameId"),
         login_time=session.get("login_time"),
@@ -203,6 +204,7 @@ def claims():
 
     return render_template(
         "claims.html",
+        year=datetime.utcnow().year,
         attributes=session["samlUserdata"],
         nameid=session.get("samlNameId"),
         session_index=session.get("samlSessionIndex"),
@@ -262,7 +264,8 @@ def slo_callback():
 @app.route("/logout-complete")
 def logout_complete():
     return render_template("logout.html")
-
+    year=datetime.utcnow().year,
+    
 
 # -------- Entrypoint --------
 
