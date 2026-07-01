@@ -985,80 +985,70 @@ body{
    Responsive - Mobile
 ======================================================= */
 
-@media (max-width: 768px) {
+@media (max-width:768px){
 
-    body{
-        font-size:16px;
+    .header-row{
+
+        padding:14px 0;
+
     }
 
-    .container{
-        width:95%;
-        padding:20px;
-    }
+    .brand{
 
-    /* Header */
-
-    .header{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:18px;
-    }
-
-    .header-left{
         width:100%;
-    }
-
-    .company-name{
-        font-size:.9rem;
-        letter-spacing:2px;
-    }
-
-    .page-title{
-        font-size:2rem;
-        line-height:1.2;
-    }
-
-    .subtitle{
-        font-size:1rem;
-    }
-
-    .version-pill{
-        align-self:flex-start;
-    }
-
-    /* Hero */
-
-    .hero{
-        padding:40px 30px;
-    }
-
-    .hero h2{
-        font-size:2rem;
-    }
-
-    .hero p{
-        font-size:1rem;
-    }
-
-    /* Panels */
-
-    .panel-body{
-        padding:28px;
-    }
-
-    /* Cards */
-
-    .provider-grid,
-    .metric-grid,
-    .summary-grid{
-
-        grid-template-columns:1fr;
+        gap:12px;
+        align-items:flex-start;
 
     }
 
-    .provider-card{
+    .brand-logo{
 
-        min-height:auto;
+        width:52px;
+        height:52px;
+
+    }
+
+    .brand-text{
+
+        width:100%;
+
+    }
+
+    .brand-top{
+
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:12px;
+
+    }
+
+    .brand-company{
+
+        font-size:.65rem;
+        letter-spacing:1px;
+
+    }
+
+    .brand-title{
+
+        font-size:1.1rem;
+        line-height:1.25;
+        margin:4px 0;
+
+    }
+
+    .brand-subtitle{
+
+        font-size:.82rem;
+        line-height:1.35;
+
+    }
+
+    .version-badge{
+
+        font-size:.70rem;
+        padding:4px 10px;
 
     }
 
@@ -1121,6 +1111,115 @@ body{
     .provider-title{
 
         font-size:1.15rem;
+
+    }
+
+}
+
+/* ==========================================================
+   Mobile Header Optimisation
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .site-header {
+
+        position: relative;
+
+    }
+
+    .header-row {
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 0;
+
+    }
+
+    .brand {
+
+        gap: 12px;
+        align-items: center;
+
+    }
+
+    .brand-text{
+
+        flex:1;
+
+    }
+
+    .brand-top{
+
+        display:flex;
+
+        justify-content:space-between;
+
+        align-items:center;
+
+        gap:20px;
+
+    }
+
+    .brand-logo {
+
+        width: 52px;
+        height: 52px;
+
+    }
+
+    .brand-company {
+
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+
+    }
+
+    .brand-title {
+
+        font-size: 1.15rem;
+        line-height: 1.25;
+        margin: 2px 0;
+
+    }
+
+    .brand-subtitle {
+
+        font-size: 0.82rem;
+        line-height: 1.35;
+
+    }
+
+    .version-badge {
+
+        font-size: 0.75rem;
+        padding: 5px 12px;
+
+    }
+
+    main.container {
+
+        padding-top: 1rem !important;
+
+    }
+
+    .hero {
+
+        padding: 30px 22px;
+        margin-bottom: 24px;
+
+    }
+
+    .hero h2 {
+
+        font-size: 1.6rem;
+
+    }
+
+    .hero p {
+
+        font-size: 0.95rem;
 
     }
 

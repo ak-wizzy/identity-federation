@@ -67,11 +67,21 @@
                         class="brand-logo"
                         alt="AK Techno Services">
 
-                    <div>
+                    <div class="brand-text">
 
-                        <div class="brand-company">
+                        <div class="brand-top">
 
-                            AK TECHNO SERVICES LTD
+                            <div class="brand-company">
+
+                                AK TECHNO SERVICES LTD
+
+                            </div>
+
+                            <div class="version-badge">
+
+                                {{ version|default("v2.0.0") }}
+
+                            </div>
 
                         </div>
 
@@ -92,12 +102,6 @@
                         </p>
 
                     </div>
-
-                </div>
-
-                <div class="version-badge">
-
-                    {{ version|default("v2.0.0") }}
 
                 </div>
 
