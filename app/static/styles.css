@@ -115,11 +115,13 @@ body{
 
 }
 
-.logo{
+.brand-logo{
 
     width:90px;
-    max-width:100%;
-    height:auto;
+    height:90px;
+    object-fit:contain;
+    flex-shrink:0;
+    display:block;
 
 }
 
@@ -952,6 +954,173 @@ body{
     .panel-header{
 
         font-size:1rem;
+
+    }
+
+}
+
+/* =======================================================
+   Responsive - Tablet
+======================================================= */
+
+@media (max-width: 1024px) {
+
+    .container {
+        width: 95%;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .metric-grid,
+    .provider-grid,
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* =======================================================
+   Responsive - Mobile
+======================================================= */
+
+@media (max-width: 768px) {
+
+    body{
+        font-size:16px;
+    }
+
+    .container{
+        width:95%;
+        padding:20px;
+    }
+
+    /* Header */
+
+    .header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+    }
+
+    .header-left{
+        width:100%;
+    }
+
+    .company-name{
+        font-size:.9rem;
+        letter-spacing:2px;
+    }
+
+    .page-title{
+        font-size:2rem;
+        line-height:1.2;
+    }
+
+    .subtitle{
+        font-size:1rem;
+    }
+
+    .version-pill{
+        align-self:flex-start;
+    }
+
+    /* Hero */
+
+    .hero{
+        padding:40px 30px;
+    }
+
+    .hero h2{
+        font-size:2rem;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    /* Panels */
+
+    .panel-body{
+        padding:28px;
+    }
+
+    /* Cards */
+
+    .provider-grid,
+    .metric-grid,
+    .summary-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .provider-card{
+
+        min-height:auto;
+
+    }
+
+}
+
+/* =======================================================
+   Small Phones
+======================================================= */
+
+@media (max-width:480px){
+
+    .container{
+
+        padding:15px;
+
+    }
+
+    .hero{
+
+        padding:30px 20px;
+
+    }
+
+    .hero h2{
+
+        font-size:1.7rem;
+
+    }
+
+    .page-title{
+
+        font-size:1.6rem;
+
+    }
+
+    .subtitle{
+
+        font-size:.95rem;
+
+    }
+
+    .panel-header{
+
+        font-size:1rem;
+
+    }
+
+    .panel-body{
+
+        padding:20px;
+
+    }
+
+    .provider-card{
+
+        padding:24px;
+
+    }
+
+    .provider-title{
+
+        font-size:1.15rem;
 
     }
 
