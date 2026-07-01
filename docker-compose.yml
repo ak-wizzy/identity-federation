@@ -1,5 +1,5 @@
 services:
-  federated-socials-sso:
+  identity-integration:
     image: akwizzy/pilot-repo:identity-integration
     container_name: identity-integration
     restart: unless-stopped
