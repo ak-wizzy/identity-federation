@@ -4,6 +4,9 @@ services:
     container_name: identity-integration
     restart: unless-stopped
 
+    ports:
+      - "5000:5000"
+
     environment:
       - FLASK_SECRET_KEY=${FLASK_SECRET_KEY}
       - SAML_IDP_ENTITY_ID=${SAML_IDP_ENTITY_ID}
