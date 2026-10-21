@@ -15,14 +15,6 @@ services:
       # Showcase Framework
       - APP_VERSION=${APP_VERSION}
 
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.identity-integration.rule=Host(`identity-integration.aktechnoservices.com`)"
-      - "traefik.http.routers.identity-integration.entrypoints=websecure"
-      - "traefik.http.routers.identity-integration.tls.certresolver=cloudflare"
-      - "traefik.http.routers.identity-integration.middlewares=secured-chain@docker"
-      - "traefik.http.services.identity-integration.loadbalancer.server.port=5000"
-
     networks:
       - reverse-proxy
 
